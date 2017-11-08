@@ -2,9 +2,13 @@
 import rospy
 from robocon18.srv import general
 
-def manual_check_sen
+def manual_check_sensors():
+    # Activate sensors
+    # Read distance
+    # decide the presence of manual
+    # return 1 if found 0 otherwise
 
-def Go(x):
+def Go(resp):
     found=manual_check_sensors()
     return generalResponse(found)
  

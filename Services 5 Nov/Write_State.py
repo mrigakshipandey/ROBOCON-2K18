@@ -2,9 +2,9 @@
 import rospy
 from robocon18.srv import general
 
-def Write(x):
+def Write(resp):
     file = open('state.txt', 'a+')
-    c = file.write(x.data)
+    c = file.write(resp.x)
     return generalResponse(c)
  
 if __name__ == '__main__':
