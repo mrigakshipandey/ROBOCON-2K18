@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    	<node 	pkg="auto"	type="brain.py"		name="Brain" 		output="screen"		required="true" />
+    	<node 	pkg="auto"	type="normal_throw.py" 	name="normal_throw" 	output="screen"/>
+	<node 	pkg="auto"	type="rb_throw.py" 	name="rb_throw" 	output="screen"/>
+    	<node 	pkg="auto"	type="reach.py" 	name="reach" 		output="screen"/>
+	<node 	pkg="auto"	type="read_state.py" 	name="Read_State" 	output="screen"/>
+    	<node 	pkg="auto"	type="write_state.py" 	name="Write_state" 	output="screen"/>
+</launch>

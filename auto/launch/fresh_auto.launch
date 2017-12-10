@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    	<node 		pkg="auto"	type="overwrite.py"		name="Over_Write" 		output="screen" />
+    	<include file="$(dirname)/auto.launch" />
+</launch>
