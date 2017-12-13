@@ -1,0 +1,2 @@
+normal	golden
+15	5

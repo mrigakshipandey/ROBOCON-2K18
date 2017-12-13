@@ -28,7 +28,7 @@ def Normal_throw(x):
     	attempt_algo = rospy.ServiceProxy('throw_from', general)
     	success = attempt_algo(x)
     	if success.y=='1':
-		print "Ball successfully thrown from %s "%x
+		print "BALL PASSED THE HOOP from %s "%x
 
 def Throw_RB():
     	rospy.wait_for_service('rb_time')
@@ -48,6 +48,7 @@ def reach(x):
 		print "Reached %s "%x
 	      
 def Read_state():
+	print "Read function called"
     	rospy.wait_for_service('know')
     	attempt_algo = rospy.ServiceProxy('know', general)
     	success = attempt_algo('1')
@@ -67,8 +68,10 @@ def Write(x):
 if __name__ == '__main__':
     try:
 	print "Starting ..."
+	rospy.init_node('Brain')
+
         while True:
-		rospy.init_node('Brain')
+		
 		s=Read_state()
 		print "State = %s"%s
 	

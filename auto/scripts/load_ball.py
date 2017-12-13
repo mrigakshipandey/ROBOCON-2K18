@@ -7,7 +7,6 @@
 import rospy
 import numpy as np
 
-#Where do we load rack?
 
 ##################################################################
 # Messages ans Services used
@@ -20,34 +19,14 @@ from auto.srv import *
 # Function Definitions
 ##################################################################
 
-def Write(x):
-    	rospy.wait_for_service('update')
-    	attempt_algo = rospy.ServiceProxy('update', general)
-    	success = attempt_algo(x)
-    	if success.y:
-		print "New State %s"%x
-
-def Read_state():
-    	rospy.wait_for_service('know')
-    	attempt_algo = rospy.ServiceProxy('know', general)
-    	success = attempt_algo('1')
-    	return success.y
-
 def handle(resp):
-	print "Attempting Rong Bay Throw..."
-	if np.random.rand(1)>0.5:
-		Write('3')
-		return generalResponse('1')
-		
-	else:
-		Write('4')# State 4 (level-1 bug)
-		return generalResponse('0')
-		
+	print "Loading Ball..."
+	return generalResponse('1')
 
 def random_result():
-	rospy.init_node('rb_throw')
-	s = rospy.Service('rb_time', general, handle) #Service Name, CMakeList File, Call
-    	rospy.spin()
+	rospy.init_node('load_ball')
+	s = rospy.Service('load_ball_action', general, handle) #Service Name, CMakeList File, Call
+    	
 	
 
 
@@ -56,4 +35,5 @@ def random_result():
 ##################################################################
 
 if __name__ == '__main__':
-    random_result()
+    	random_result()
+	rospy.spin()

@@ -11,6 +11,7 @@ def Read(resp):
 		file.close()
 		wordList=re.sub("[^\w]"," ",a).split()
 		ab=wordList[-1]
+		# print "ab= %s"%ab
 		return generalResponse(ab)
 	
 	except IOError:
