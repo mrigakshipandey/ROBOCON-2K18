@@ -1,21 +1,23 @@
 <?xml version="1.0"?>
 <launch>
 
-	<!-- Level-1 -->
     	<node 	pkg="auto"	type="brain.py"			name="Brain" 		output="screen"		required="true" />
+	<node 	pkg="auto"	type="total_ball.py" 		name="global_ball" 	output="screen"/>
+	<node 	pkg="auto"	type="total_gball.py" 		name="load_rack" 	output="screen"/>
     	<node 	pkg="auto"	type="normal_throw.py" 		name="normal_throw" 	output="screen"/>
 	<node 	pkg="auto"	type="rb_throw.py" 		name="rb_throw" 	output="screen"/>
     	<node 	pkg="auto"	type="reach.py" 		name="reach" 		output="screen"/>
 	<node 	pkg="auto"	type="read_state.py" 		name="Read_State" 	output="screen"/>
     	<node 	pkg="auto"	type="write_state.py" 		name="Write_state" 	output="screen"/>
-
-	<!-- Level-1.5 -->
 	<node 	pkg="auto"	type="ball.py" 			name="Ball_Counter" 	output="screen"/>
 	<node 	pkg="auto"	type="check_ball.py" 		name="check_ball" 	output="screen"/>
 	<node 	pkg="auto"	type="load_ball.py" 		name="load_ball" 	output="screen"/>
 	<node 	pkg="auto"	type="manual.py" 		name="check_manual" 	output="screen"/>
 	<node 	pkg="auto"	type="throw_arm_activate.py" 	name="Throw_Arm" 	output="screen"/>
-	<node 	pkg="auto"	type="total_ball.py" 		name="global_ball" 	output="screen"/>
 	<node 	pkg="auto"	type="update_ball.py" 		name="Update_ball" 	output="screen"/>
-	
+	<node 	pkg="auto"	type="check_rack.py" 		name="rack_present" 	output="screen"/>
+	<node 	pkg="auto"	type="gball.py" 		name="GBall_Counter" 	output="screen"/>
+	<node 	pkg="auto"	type="load_rack.py" 		name="golden_throw" 	output="screen"/>
+	<node 	pkg="auto"	type="golden_throw.py" 		name="global_gball" 	output="screen"/>
+	<node 	pkg="auto"	type="update_gball.py" 		name="Update_gball" 	output="screen"/>	
 </launch>

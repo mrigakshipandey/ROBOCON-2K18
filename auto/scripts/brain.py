@@ -36,8 +36,6 @@ def Throw_RB():
     	success = attempt_algo('1')
     	if success.y=='1':
 		print "Rong Bay"
-    	else:
-		print "Rong Bay unsuccessful"
 
 
 def reach(x):
@@ -61,6 +59,12 @@ def Write(x):
     	if success.y=='1':
 		print "New State %s"%x
 
+def overwrite():
+    	rospy.wait_for_service('overwrite')
+    	attempt_algo = rospy.ServiceProxy('overwrite', general)
+    	success = attempt_algo('1')
+
+
 ##################################################################
 #Main Program
 ##################################################################
@@ -69,6 +73,7 @@ if __name__ == '__main__':
     try:
 	print "Starting ..."
 	rospy.init_node('Brain')
+	
 
         while True:
 		

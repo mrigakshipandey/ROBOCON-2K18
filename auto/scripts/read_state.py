@@ -4,6 +4,7 @@ from auto.srv import *
 import re
 
 def Read(resp):
+	print "Inside Read State Server"
 	try:
     		file = open('/home/ubuntu/catkin_ws/src/auto/files/state.txt', 'r+')
 		# read 1 line from the end, return the value

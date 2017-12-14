@@ -47,7 +47,7 @@ def Update_ball():
     	rospy.wait_for_service('update_ball')
     	attempt_algo = rospy.ServiceProxy('update_ball', general)
     	success = attempt_algo('1')
-	print "One Ball deducted..."
+	print "One Ball deducted... %s"%success.y
     
 def manual():
     	rospy.wait_for_service('manual_present')

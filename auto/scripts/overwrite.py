@@ -12,27 +12,42 @@ def totalball():
     	success = attempt_algo('1')
     	return success.y
 
+def totalgball():
+	#print "Total gball called"
+    	rospy.wait_for_service('read_total_gball')
+    	attempt_algo = rospy.ServiceProxy('read_total_gball', general)
+    	success = attempt_algo('1')
+    	return success.y
+
 def OverWrite():
+	print "Inside OverWrite Server"
 	try:
     		file = open('/home/ubuntu/catkin_ws/src/auto/files/state.txt', 'r+')
-		# read 1 line from the end, return the value
 		file.seek(0)
 		file.truncate()
 		file.write('\n0')
 		file.close()
-		
+		print "State.txt ready"		
 		
 		file = open('/home/ubuntu/catkin_ws/src/auto/files/ball.txt', 'r+')
-		# read 1 line from the end, return the value
 		file.seek(0)
 		file.truncate()
 		file.write('\n%s'%totalball())
 		file.close()
+		print "ball.txt ready"
+
+		file = open('/home/ubuntu/catkin_ws/src/auto/files/gball.txt', 'r+')
+		file.seek(0)
+		file.truncate()
+		#print "file emptied"
+		file.write('\n%s'%totalgball())
+		print "gball.txt ready"
+		file.close()
 		
-		sys.exit()
+		return generalResponse('1')
 			
 	except IOError:
-		pass
+		print "************************************************************IOError occured"
  
 if __name__ == '__main__':
     	rospy.init_node('Over_Write')
